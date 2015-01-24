@@ -1,0 +1,67 @@
+   ====VAGRANT VIRTUALIZED DEV ENVIRONMENT SETUP INSTRUCTIONS===
+
+I. PURPOSE
+
+ > To enable the use of a simulated production environment by all members of Tech team 
+irrespective of their local dev environments
+> To get as much a sense of what the project is going to look like in production by using the 
+same setup during development
+> To automate installation of need web stack packages, development tools and such others.
+
+
+
+II. REQUIRED COMPONENTS/DOWNLOADS
+
+To properly setup a development environment using Vagrant, we need two vital components:
+
+1. VirtualBox: While there are many other providers out there, we will be using VirtualBox 
+to manage our Linux virtual machines.
+
+2. Vagrant: This is the tool that will enable us to create "lightweight, reproducible and portable
+development environments" for our project. This way, irrespective of what you use for a local
+dev machine (PC, Mac, some-other-system, etc.), we can all use, run and develop on the same 
+setup as everyone else on the team. No more, "I couldn't get it to work on my machine", 
+"but it worked on mine without hiccups" lunch time conversations.
+
+III. THE SETUP
+
+There are three (3) parts to the setup for it to work
+
+1. HOST MACHINE SETUP:
+ 
+> On your host machine (your PC, Mac, etc.) create a directory called, "imentor_project"
+> cd into this directory (cd imentor_project)
+Now, we will clone the vagrant_devser repo. This will help us avoid having to 
+manually-tweak the vagrant configuration file (Vagrantfile) and other parts of the vagrant
+setup process.
+Make sure you have git properly configured at this point.
+
+While inside the imentor_project directory:
+> git clone https://github.com/jallohm/vagrant_devserver.git 
+> cd vagrant_devserver 
+
+2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
+RUN the provison.sh script to automatically-execute these
+
+>> vagrant/provision.sh 
+
+ >> vagrant up
+ >> vagrant ssh 
+ >> sudo su 
+ >> sudo apt-get update
+ >> sudo apt-get -y install [WEB STACK PACKAGES]
+ >> sudo apt-get -y install [DEV TOOLS: git, nginx, etc.]
+ >> pip install -r api/requirements.pip ....
+ >> echo "We will now start the dev server. And, the rest if up to you. :)"
+ >> python api/runserver.py
+
+
+3. PROJECT SETUP 
+
+
+IV. POSSIBLE HICKUPS and FIXES
+
+V. CONTACT/SUPPORT 
+
+ 
+
