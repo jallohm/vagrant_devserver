@@ -43,18 +43,7 @@ While inside the imentor_project directory:
 2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
 RUN the provison.sh script to automatically-execute these
 
->> vagrant/provision.sh 
-
- >> vagrant up
- >> vagrant ssh 
- >> sudo su 
- >> sudo apt-get update
- >> sudo apt-get -y install [WEB STACK PACKAGES]
- >> sudo apt-get -y install [DEV TOOLS: git, nginx, etc.]
- >> pip install -r api/requirements.pip ....
- >> echo "We will now start the dev server. And, the rest if up to you. :)"
- >> python api/runserver.py
-
+> NOTE: This will be automatically-done for you. You may sit around and see what's going on though.
 
 3. PROJECT SETUP 
 
