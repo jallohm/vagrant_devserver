@@ -12,5 +12,5 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "../", "/imentor"
 
   #config.vm.provision "shell", path: "vagrant/provision.sh"
-  config.vm.provision "shell", path: "setup_script.sh"
+  config.vm.provision "shell", path: "vagrant/setup_script.sh"
 end
