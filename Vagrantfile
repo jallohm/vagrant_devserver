@@ -11,5 +11,6 @@ Vagrant.configure(2) do |config|
   # assume platform and api are checked out and peers
   config.vm.synced_folder "../", "/imentor"
 
-  config.vm.provision "shell", path: "vagrant/provision.sh"
+  #config.vm.provision "shell", path: "vagrant/provision.sh"
+  config.vm.provision "shell", path: "setup_script.sh"
 end
