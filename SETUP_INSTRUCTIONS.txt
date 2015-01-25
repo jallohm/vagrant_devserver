@@ -100,6 +100,8 @@ IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
 	'shut down' the machine for a while. 
 > vagrant reload: This is for rebooting the Vagrant dev server after you 'halt' it or 
 	change its configuration file (the Vagrantfile).
+> vagrant status: This will tell you the state of the Vagrant machines you are running.
+	Find out which ones are currently running, suspended or yet to be created.
 
 
 2. Special Tasks
