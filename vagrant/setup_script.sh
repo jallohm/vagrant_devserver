@@ -4,7 +4,7 @@
 # * the api app and its python requirements
 # * postgres
 
-echo "Let's SSH into our vagrant dev server"
+echo "Let's give ourselves super user status first; just in case."
 sudo su 
 echo "Let's update the Linux CLI utility"
 sudo apt-get update
@@ -48,6 +48,7 @@ cd /imentor && pip install -r requirements.pip
 
 echo "Please, refer to the SETUP_INSTRUCTIONS.txt file for how to"
 echo "clone the repositories, set them up and start the servers."
-echo "Thank you."
+echo "Please, email the team with any questions, concerns, comments or suggestions "
+echo "This will ensure we can improve this process. Thank you."
 
 
