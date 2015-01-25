@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
   # assume platform and vagrant_devserver are checked out and peers
   #symlink server's '/var/www/' directory with our '/imentor' directory
   #The whole project should be accessible from here: '/imentor'
-  config.vm.synced_folder "./imentor", "/var/www/"; create:true
+  config.vm.synced_folder "../", "/imentor"
 
   #config.vm.provision "shell", path: "vagrant/provision.sh"
   #Edited the original provision script to include other package downloads
