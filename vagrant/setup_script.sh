@@ -33,7 +33,7 @@ echo -e '\n\n=============================\n'
 echo "Installing git on the vagrant server"
 sudo apt-get install -y git 
 echo "Installing some Python packages of the web stack"
-pip install django flask bs4 python-dateutil
+pip install python-dateutil
 
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi

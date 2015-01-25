@@ -16,6 +16,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # assume platform and vagrant_devserver are checked out and peers
+  #symlink server's '/var/www/' directory with our '/imentor' directory
+  #The whole project should be accessible from here: '/imentor'
   config.vm.synced_folder "./imentor", "/var/www/"; create:true
 
   #config.vm.provision "shell", path: "vagrant/provision.sh"
