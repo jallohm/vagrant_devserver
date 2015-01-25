@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
   # disable default /vagrant share
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  # assume platform and api are checked out and peers
+  # assume platform and vagrant_devserver are checked out and peers
   config.vm.synced_folder "../", "/imentor"
 
   #config.vm.provision "shell", path: "vagrant/provision.sh"

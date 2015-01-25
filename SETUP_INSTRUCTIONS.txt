@@ -70,8 +70,6 @@ with only these two sub-directories.
 Now, we are ready to set up the Vagrant virtualized environment to work on the codebase 
 and run the project server.
 
-> Copy the contents of the vagrant_server directory into the root of the 'platform' directory
-
 2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
 At this point: 
    > cd into the 'platform' directory
@@ -81,11 +79,12 @@ At this point:
         > SETUP_INSTRUCTIONS.txt : This document with details of how to set you Vagrant
          machine up.
 
-While in the root of the 'platform' directory, enter:
- vagrant up : This will take some time. It will fetch the virtualbox instance, install
-	everything up and get your Vagrant dev server ready
- vagrant ssh: Once it is all setup and done (which may take many minutes), 
-	type in 'vagrant ssh' to SSH into your Vagrant dev server. 
+While in the root of the 'imentor_project' directory:
+> cd into the vagrant_devserver directory and execute:
+   vagrant up : This will take some time. It will fetch the virtualbox instance, install
+		everything up and get your Vagrant dev server ready
+   vagrant ssh: Once it is all setup and done (which may take many minutes), 
+		type in 'vagrant ssh' to SSH into your Vagrant dev server. 
 
 At this point, your computer will treat the Vagrant box as it would a remote Linux server
 that you are SSH-ing into.
@@ -93,13 +92,32 @@ that you are SSH-ing into.
 Now, you are ready to start the server, test the project and so on, just as if you
 were on a real production Linux server.
 
-> NOTE: This will be automatically-done for you. 
-	You may sit around and see what's going on though.
+IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
+
+1. Common Tasks:
+> vagrant ssh: This is 'logging in' to your Vagrant dev server.
+> vagrant halt: This is for stopping the Vagrant dev server. It won't destroy it, just
+	'shut down' the machine for a while. 
+> vagrant reload: This is for rebooting the Vagrant dev server after you 'halt' it or 
+	change its configuration file (the Vagrantfile).
 
 
-IV. POSSIBLE HICKUPS and FIXES
+2. Special Tasks
+> vagrant reload: If you edit the Vagrantfile (the configuration file) and need to restart
+	restart/reload your Vagrant machine, run this command.
+> vagrant destroy: This, as implied, will destroy/delete the Vagrant virtual dev server 
+	you have spun. Note that it won't delete the vagrant boxes 
+	(trusyt64, precise32, etc.) that you may have downloaded. These exist in your 
+	local machine and can be used to spin multiple Vagrant dev servers.
 
-V. CONTACT/SUPPORT 
+
+
+
+
+
+V. POSSIBLE HICKUPS and FIXES
+
+VI. CONTACT/SUPPORT 
 
 Please, email the team for questions, comments, concerns or suggestions on your 
 experience with and how to improve this process.
