@@ -20,6 +20,10 @@ Vagrant.configure(2) do |config|
   #The whole project should be accessible from here: '/imentor'
   config.vm.synced_folder "../", "/imentor"
 
+  #Make the project folder accessible from the guest machine (Vagrant devserver)
+  # when you 'vagrant ssh' in and go to '/home/vagrant/imentor'
+  config.vm.share_folder "project", "/home/vagrant/imentor", "." 
+
   #config.vm.provision "shell", path: "vagrant/provision.sh"
   #Edited the original provision script to include other package downloads
   config.vm.provision "shell", path: "vagrant/setup_script.sh"
