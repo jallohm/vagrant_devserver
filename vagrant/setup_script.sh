@@ -40,7 +40,19 @@ cd /platform/imentor && pip install -r requirements.pip
 
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi
-sudo -upostgres sh -c "psql -f /vagrant/init.sql"
+sudo -u postgres sh -c "psql -f /vagrant/init.sql"
+
+echo "CREATE A 'vagrant' DB user"
+sudo su postgres createuser vagrant
+echo "CREATE A POSTGRES USER AND DATABASE FOR our app"
+sudo su postgres -c createuser imentor
+sudo -u postgres createdb -O imentor imentor_production
+sudo su postgres -c psql
+ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
+
+#sudo su CREATEUSER imentor WITH PASSWORD '7yh8uj9ik0ol'
+#CREATE DATABASE imentor_production OWNER imentor;
+#sudo su CREATE DATABASE imentor_production OWNER imentor
 echo -e '\n\n=============================\n'
 
 echo 'TO RUN THE DEV SERVER:'
