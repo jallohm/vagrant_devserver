@@ -9,7 +9,6 @@ same setup during development
 > To automate installation of need web stack packages, development tools and such others.
 
 
-
 II. REQUIRED COMPONENTS/DOWNLOADS
 
 To properly setup a development environment using Vagrant, we need two vital components:
@@ -50,35 +49,57 @@ While inside the imentor_project directory, you will download the 'platform' cod
 and custom vagrant_devserver repositories from GitHub as follows (and in this order):
 > Download the 'platform' repository: 
    1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git 
-   2. Change into the platform directory: 
-   	Type in: cd platform
+   2. Change into the platform directory and ls to see that the 'platform'
+   packages are there
+   3. Exit the platform directory: cd ..
 
+You should now be in the main imentor_project directory.
 > Download the vagrant_devserver repo:
-While still inside the 'platform/' directory:
+While still inside the 'imentor_project' directory:
    1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git
    2. Change into the vagrant_devserver directory
 
-By your imentor_project folder should look like:
+By now, your imentor_project folder should look like:
  imentor_project:
 	platform
-		vagrant_devserver 
+	vagrant_devserver 
 
-In order words, you should now be in path/to/imentor_project/platform/vagrant_devserver
+with only these two sub-directories.
+
 
 Now, we are ready to set up the Vagrant virtualized environment to work on the codebase 
 and run the project server.
 
+> Copy the contents of the vagrant_server directory into the root of the 'platform' directory
+
 2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
-RUN the provison.sh script to automatically-execute these
+At this point: 
+   > cd into the 'platform' directory
+   > The 'platform' directory should have these additional contents:
+	> vagrant : a folder
+        > Vagrantfile : The config file for Vagrant
+        > SETUP_INSTRUCTIONS.txt : This document with details of how to set you Vagrant
+         machine up.
 
-> NOTE: This will be automatically-done for you. You may sit around and see what's going on though.
+While in the root of the 'platform' directory, enter:
+ vagrant up : This will take some time. It will fetch the virtualbox instance, install
+	everything up and get your Vagrant dev server ready
+ vagrant ssh: Once it is all setup and done (which may take many minutes), 
+	type in 'vagrant ssh' to SSH into your Vagrant dev server. 
 
-3. PROJECT SETUP 
+At this point, your computer will treat the Vagrant box as it would a remote Linux server
+that you are SSH-ing into.
+
+Now, you are ready to start the server, test the project and so on, just as if you
+were on a real production Linux server.
+
+> NOTE: This will be automatically-done for you. 
+	You may sit around and see what's going on though.
 
 
 IV. POSSIBLE HICKUPS and FIXES
 
 V. CONTACT/SUPPORT 
 
- 
-
+Please, email the team for questions, comments, concerns or suggestions on your 
+experience with and how to improve this process.
