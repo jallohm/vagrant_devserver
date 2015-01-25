@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
   #create a virtual private network and ip for this dev server
-  config.vm.network "private_network"; ip: "12.34.56.78"
+  config.vm.network "private_network", ip: "12.34.56.78"
 
   # disable default /vagrant share
   config.vm.synced_folder ".", "/vagrant", disabled: true
