@@ -32,11 +32,11 @@ echo "[initandlisten] waiting for connections on port 27017"
 echo -e '\n\n=============================\n'
 echo "Installing git on the vagrant server"
 sudo apt-get install -y git 
-echo "Installing some Python packages of the web stack"
-pip install python-dateutil
+echo "Installing some Python packages of our project's web stack"
+pip install -r requirements.pip
 
-cd /imentor && ln -sf ./platform ./imi 
-cd /platform/imentor && pip install -r requirements.pip
+#cd /imentor && ln -sf ./platform ./imi 
+#cd /platform/imentor && pip install -r requirements.pip
 
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi
@@ -44,11 +44,12 @@ sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A 'vagrant' DB user"
 sudo su postgres createuser vagrant
-echo "CREATE A POSTGRES USER AND DATABASE FOR our app"
+echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 sudo su postgres -c createuser imentor
 sudo -u postgres createdb -O imentor imentor_production
 sudo su postgres -c psql
 ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
+
 
 #sudo su CREATEUSER imentor WITH PASSWORD '7yh8uj9ik0ol'
 #CREATE DATABASE imentor_production OWNER imentor;
