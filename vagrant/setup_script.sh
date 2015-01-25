@@ -44,12 +44,16 @@ sudo chown vagrant:vagrant /var/log/uwsgi
 sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A 'vagrant' DB user"
-sudo su postgres createuser vagrant
+sudo su postgres -c createuser vagrant
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 sudo su postgres -c createuser imentor
-sudo -u postgres createdb -O imentor imentor_production
 sudo su postgres -c psql
 ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
+sudo -u postgres createdb -O imentor imentor_production
+#sudo su postgres -c psql
+
+
+\q
 
 
 #sudo su CREATEUSER imentor WITH PASSWORD '7yh8uj9ik0ol'
