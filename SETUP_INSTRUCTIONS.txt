@@ -95,9 +95,10 @@ were on a real production Linux server.
 IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
 
 1. Common Tasks:
-> vagrant ssh: This is 'logging in' to your Vagrant dev server.
+> vagrant up: This is for booting/turning on the Vagrant dev server
+> vagrant ssh: This is 'logging in' to your Vagrant dev server once it is booted.
 > vagrant halt: This is for stopping the Vagrant dev server. It won't destroy it, just
-	'shut down' the machine for a while. 
+	'shut down' the machine for a while.
 > vagrant reload: This is for rebooting the Vagrant dev server after you 'halt' it or 
 	change its configuration file (the Vagrantfile).
 > vagrant status: This will tell you the state of the Vagrant machines you are running.
