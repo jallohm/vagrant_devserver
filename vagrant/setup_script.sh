@@ -13,14 +13,15 @@ echo -e '\n\n=============================\n'
 echo "Next: Let's install the MongoDB packages"
 
 echo "Step #1: Import the public key used by the package management system."
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 
 echo "Step #2: Create a list file for MongoDB"
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 echo "Step #3: Reload local package database"
+sudo apt-get -y update
 
 echo "Step #4: Install the MongoDB packages"
-sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb-10gen
 
 echo "Step #5: Finally, start the MongoDB server instance"
 sudo service mongod start
