@@ -35,6 +35,9 @@ sudo apt-get install -y git
 echo "Installing some Python packages of the web stack"
 pip install python-dateutil
 
+cd /imentor && ln -sf ./platform ./imi 
+cd /platform/imentor && pip install -r requirements.pip
+
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi
 sudo -upostgres sh -c "psql -f /vagrant/init.sql"
@@ -42,9 +45,6 @@ echo -e '\n\n=============================\n'
 
 echo 'TO RUN THE DEV SERVER:'
 echo "Enter: 'vagrant ssh'"
-
-cd /imentor && ln -sf ./platform ./imi 
-cd /imentor && pip install -r requirements.pip
 
 echo "Please, refer to the SETUP_INSTRUCTIONS.txt file for how to"
 echo "clone the repositories, set them up and start the servers."
