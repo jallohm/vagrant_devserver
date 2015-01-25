@@ -15,14 +15,14 @@ Vagrant.configure(2) do |config|
   # disable default /vagrant share
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  # assume platform and vagrant_devserver are checked out and peers
+  #Assuming that the this Vagrantfile is in our local platform/imentor directory
   #symlink server's '/var/www/' directory with our '/imentor' directory
   #The whole project should be accessible from here: '/imentor'
-  config.vm.synced_folder "../", "/imentor"
+  config.vm.synced_folder ".", "/imentor"
 
   #Make the project folder accessible from the guest machine (Vagrant devserver)
   # when you 'vagrant ssh' in and go to '/home/vagrant/imentor'
-  config.vm.share_folder "project", "/home/vagrant/imentor", "." 
+  #config.vm.share_folder "project", "/home/vagrant/imentor", "." 
 
   #config.vm.provision "shell", path: "vagrant/provision.sh"
   #Edited the original provision script to include other package downloads
