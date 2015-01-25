@@ -17,11 +17,15 @@ To properly setup a development environment using Vagrant, we need two vital com
 1. VirtualBox: While there are many other providers out there, we will be using VirtualBox 
 to manage our Linux virtual machines.
 
+You may find more detailed information about VirtualBox at: https://www.virtualbox.org/
+
 2. Vagrant: This is the tool that will enable us to create "lightweight, reproducible and portable
 development environments" for our project. This way, irrespective of what you use for a local
 dev machine (PC, Mac, some-other-system, etc.), we can all use, run and develop on the same 
 setup as everyone else on the team. No more, "I couldn't get it to work on my machine", 
 "but it worked on mine without hiccups" lunch time conversations.
+
+Please, find more detailed information at: https://www.vagrantup.com/
 
 III. THE SETUP
 
@@ -31,14 +35,38 @@ There are three (3) parts to the setup for it to work
  
 > On your host machine (your PC, Mac, etc.) create a directory called, "imentor_project"
 > cd into this directory (cd imentor_project)
-Now, we will clone the vagrant_devser repo. This will help us avoid having to 
-manually-tweak the vagrant configuration file (Vagrantfile) and other parts of the vagrant
-setup process.
-Make sure you have git properly configured at this point.
+Now, we will clone the 'platform' and 'vagrant_devserver' repositories. This will help us 
+avoid having to manually-tweak the vagrant configuration file (Vagrantfile) and other 
+parts of the vagrant setup process.
 
-While inside the imentor_project directory:
-> git clone https://github.com/jallohm/vagrant_devserver.git 
-> cd vagrant_devserver 
+Make sure you have git properly configured at this point.
+If you need a refresher on setting up Git and GitHub, please, see:
+> Using Git: https://www.atlassian.com/git/tutorials/
+> Using GitHub: https://help.github.com/
+
+(Or reach out to other members of the team who can help.)
+
+While inside the imentor_project directory, you will download the 'platform' codebase 
+and custom vagrant_devserver repositories from GitHub as follows (and in this order):
+> Download the 'platform' repository: 
+   1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git 
+   2. Change into the platform directory: 
+   	Type in: cd platform
+
+> Download the vagrant_devserver repo:
+While still inside the 'platform/' directory:
+   1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git
+   2. Change into the vagrant_devserver directory
+
+By your imentor_project folder should look like:
+ imentor_project:
+	platform
+		vagrant_devserver 
+
+In order words, you should now be in path/to/imentor_project/platform/vagrant_devserver
+
+Now, we are ready to set up the Vagrant virtualized environment to work on the codebase 
+and run the project server.
 
 2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
 RUN the provison.sh script to automatically-execute these
