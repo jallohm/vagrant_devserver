@@ -60,9 +60,7 @@ sudo createdb -O imentor imentor_production
 #\q
 
 
-#sudo su CREATEUSER imentor WITH PASSWORD '7yh8uj9ik0ol'
-#CREATE DATABASE imentor_production OWNER imentor;
-#sudo su CREATE DATABASE imentor_production OWNER imentor
+cd /imentor/imentor && pip install -r requirements.pip
 echo -e '\n\n=============================\n'
 
 echo 'TO RUN THE DEV SERVER:'
