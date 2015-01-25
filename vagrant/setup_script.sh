@@ -34,6 +34,7 @@ echo "Installing git on the vagrant server"
 sudo apt-get install -y git 
 echo "Installing some Python packages of our project's web stack"
 pip install -r requirements.pip
+export DJANGO_SETTINGS_MODULE='imentor.settings'
 
 #cd /imentor && ln -sf ./platform ./imi 
 #cd /platform/imentor && pip install -r requirements.pip
