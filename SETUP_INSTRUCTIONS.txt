@@ -110,6 +110,9 @@ IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
 	(trusyt64, precise32, etc.) that you may have downloaded. These exist in your 
 	local machine and can be used to spin multiple Vagrant dev servers.
 
+> vagrant provision: Use this to restart your Vagrant dev server after you have edited the 
+	accompanying shell script (e.g. after adding commands to install extra packages,
+	etc.)
 
 
 
