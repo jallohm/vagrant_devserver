@@ -13,6 +13,7 @@ sudo apt-get -y install python-pip python-dev postgresql postgresql-server-dev-9
 sudo wget https://svn.apache.org/repos/asf/oodt/tools/oodtsite.publisher/trunk/distribute_setup.py
 sudo easy_install --upgrade pip
 sudo pip install --no-use-wheel --upgrade distribute
+sudo python distribute_setup.py
 
 echo -e '\n\n=============================\n'
 echo "Next: Let's install the MongoDB packages"
@@ -54,7 +55,7 @@ sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 
-sudo postgres createuser -s -d imentor
+sudo createuser -s -d imentor
 #sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
