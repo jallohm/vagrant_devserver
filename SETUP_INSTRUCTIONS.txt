@@ -48,23 +48,24 @@ If you need a refresher on setting up Git and GitHub, please, see:
 While inside the imentor_project directory, you will download the 'platform' codebase 
 and custom vagrant_devserver repositories from GitHub as follows (and in this order):
 > Download the 'platform' repository: 
-   1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git 
+   1. Type (or paste) in: https://github.com/imentor/platform.git
    2. Change into the platform directory and ls to see that the 'platform'
    packages are there
    3. Exit the platform directory: cd ..
 
-You should now be in the main imentor_project directory.
+You should now be in the main imentor_project directory again.
 > Download the vagrant_devserver repo:
 While still inside the 'imentor_project' directory:
    1. Type (or paste) in: git clone https://github.com/jallohm/vagrant_devserver.git
    2. Change into the vagrant_devserver directory
+   3. Copy the Vagrantfile and vagrant/ folder into the imentor_project/platform/imentor directory
+    At this point when you view you visit imentor_project/platform/imentor, you should see, among other files and directories, 
+    these:
+    	> Vagrantfile
+    	> vagrant/ folder
+    	> manage.py
 
-By now, your imentor_project folder should look like:
- imentor_project:
-	platform
-	vagrant_devserver 
-
-with only these two sub-directories.
+At this point, you are properly setup. Good job there! :)
 
 
 Now, we are ready to set up the Vagrant virtualized environment to work on the codebase 
@@ -73,21 +74,29 @@ and run the project server.
 2. GUEST MACHINE (VIRTUALIZED LOCAL SERVER) SETUP
 At this point: 
    > cd into the 'platform' directory
-   > The 'platform' directory should have these additional contents:
+   > The 'platform/imentor/' directory should have, among others, these additional contents:
 	> vagrant : a folder
-        > Vagrantfile : The config file for Vagrant
-        > SETUP_INSTRUCTIONS.txt : This document with details of how to set you Vagrant
-         machine up.
+    > Vagrantfile : The config file for Vagrant
+     
 
-While in the root of the 'imentor_project' directory:
-> cd into the vagrant_devserver directory and execute:
+While still at platform/imentor, execute these commands:
    vagrant up : This will take some time. It will fetch the virtualbox instance, install
-		everything up and get your Vagrant dev server ready
-   vagrant ssh: Once it is all setup and done (which may take many minutes), 
-		type in 'vagrant ssh' to SSH into your Vagrant dev server. 
+		everything up and get your Vagrant dev server ready. This may take several minutes.
+   vagrant ssh: Once it is all setup and done, type in 'vagrant ssh' to SSH into your Vagrant dev server. 
 
 At this point, your computer will treat the Vagrant box as it would a remote Linux server
 that you are SSH-ing into.
+
+THE FIRST TIME YOU SSH INTO YOUR VAGRANT DEV SERVER/MACHINE
+The first time you run 'vagrant ssh' after setting up your Vagrant dev server, you will need to do two things:
+
+1. Run "sudo python distribute_setup.py" to properly setup the pip (Python's package installer)
+
+2. Follow these:
+> cd imentor
+> sudo pip install -r requirements.pip --allow-all-external 
+  This will install the imentor project's package dependencies
+
 
 Now, you are ready to start the server, test the project and so on, just as if you
 were on a real production Linux server.
@@ -97,12 +106,14 @@ IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
 1. Common Tasks:
 > vagrant up: This is for booting/turning on the Vagrant dev server
 > vagrant ssh: This is 'logging in' to your Vagrant dev server once it is booted.
+> exit : While inside the server, execute this to logout of it. You will have to 'vagrant ssh' to get back on the server again.
 > vagrant halt: This is for stopping the Vagrant dev server. It won't destroy it, just
 	'shut down' the machine for a while.
 > vagrant reload: This is for rebooting the Vagrant dev server after you 'halt' it or 
 	change its configuration file (the Vagrantfile).
 > vagrant status: This will tell you the state of the Vagrant machines you are running.
 	Find out which ones are currently running, suspended or yet to be created.
+> vagrant destroy: This will DELETE your Vagrant machine. You will have to run 'vagrant up' to create one afresh.
 
 
 2. Special Tasks
@@ -118,10 +129,9 @@ IV. MANAGING YOUR VAGRANT VIRTUAL DEV SERVER
 	etc.)
 
 
-
-
-
 V. POSSIBLE HICKUPS and FIXES
+There may be any number of potential hiccups during setup. I have configured the Vagrantfile to handle many of these, but there are other
+potential ones. So, if you come across any, don't hesitate to share your frustration with us.
 
 VI. CONTACT/SUPPORT 
 
