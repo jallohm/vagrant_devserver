@@ -27,8 +27,8 @@ sudo apt-get -y update
 echo "Step #4: Install the MongoDB packages"
 sudo apt-get install -y mongodb-10gen
 
-echo "Step #5: Finally, start the MongoDB server instance"
-sudo service mongod start
+#echo "Step #5: Finally, start the MongoDB server instance"
+#sudo service mongod start
 
 echo "Step #6: VERIFY THAT THE MONGODB PROCESSING IS RUNNING"
 echo "Check the contents of the log file at /var/log/mongodb/mongod.log for a line reading"
