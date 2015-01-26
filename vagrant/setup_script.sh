@@ -11,6 +11,7 @@ sudo apt-get update
 sudo apt-get -y install python-pip python-dev postgresql postgresql-server-dev-9.3
 # Backup way of installing setup.py and pip
 sudo wget https://svn.apache.org/repos/asf/oodt/tools/oodtsite.publisher/trunk/distribute_setup.py
+sudo easy_install --upgrade pip
 sudo pip install --no-use-wheel --upgrade distribute
 
 echo -e '\n\n=============================\n'
