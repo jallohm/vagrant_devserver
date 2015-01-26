@@ -4,8 +4,8 @@
 # * the api app and its python requirements
 # * postgres
 
-echo "Let's give ourselves super user status first; just in case."
-sudo su 
+#echo "Let's give ourselves super user status first; just in case."
+#sudo su 
 echo "Let's update the Linux CLI utility"
 sudo apt-get update
 sudo apt-get -y install python-pip python-dev postgresql postgresql-server-dev-9.3
@@ -34,24 +34,22 @@ echo -e '\n\n=============================\n'
 echo "Installing git on the vagrant server"
 sudo apt-get install -y git 
 echo "Installing some Python packages of our project's web stack"
-pip install -r requirements.pip
+#pip install -r requirements.pip
+
+cd /imentor && ln -sf ./platform ./imi 
+cd /imentor/ && pip install -r requirements.pip
 export DJANGO_SETTINGS_MODULE='imentor.settings'
 
-#cd /imentor && ln -sf ./platform ./imi 
-#cd /platform/imentor && pip install -r requirements.pip
-
-sudo su createuser vagrant
+echo "CREATE A 'vagrant' DB user"
+sudo createuser vagrant
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi
 sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
-echo "CREATE A 'vagrant' DB user"
-sudo su createuser vagrant
+
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 
-sudo createuser -P -s -d -r imentor
-7yh8uj9ik0ol
-7yh8uj9ik0ol
+sudo createuser -s -d -r imentor
 sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
@@ -59,8 +57,6 @@ sudo createdb -O imentor imentor_production
 #sudo su postgres -c psql
 #\q
 
-
-cd /imentor/imentor && pip install -r requirements.pip
 echo -e '\n\n=============================\n'
 
 echo 'TO RUN THE DEV SERVER:'
