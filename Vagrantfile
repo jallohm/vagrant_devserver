@@ -6,20 +6,27 @@ Vagrant.configure(2) do |config|
   #Customize name of box to be "organization-explicit"
   #Note: This is the ubuntu/trusty64 Vagrant box
   config.vm.box = "imentor_dev"
+  
+  #Specify the URL our Linux server machine should be downloaded from, if not 
+  #already downloaded
   config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
   #Change the port to one that wouldn't collide with a port in use by the host
-  config.vm.network "forwarded_port", guest: 8000, host: 1234
+  config.vm.network "forwarded_port", guest: 8000, host: 8200
 
   #create a virtual private network and ip for this dev server
   #config.vm.network "private_network", ip: "12.34.56.78"
 
+  #Configure a hostname for our Vagrant dev server instead of the default nil setting
+  config.vm.hostname = "imentordev.com"
+
   # disable default /vagrant share
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
+
   #Assuming that the this Vagrantfile is in our local platform/imentor directory
   #symlink server's '/var/www/' directory with our '/imentor' directory
-  #The whole project should be accessible from here: '/imentor'
-  config.vm.synced_folder "../", "/imentor"
+  #The whole project should be accessible from here: '/home/vagrant/imentor'
+  config.vm.synced_folder ".", "/home/vagrant/imentor"
 
   # Fix symlinking error on Windows (and possibly other) PCs
   #config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
