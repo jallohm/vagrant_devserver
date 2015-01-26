@@ -43,7 +43,7 @@ echo "Installing some Python packages of our project's web stack"
 #pip install -r requirements.pip
 
 cd /imentor && ln -sf ./platform ./imi 
-cd /imentor/ && sudo pip install -r requirements.pip
+cd /imentor/ && sudo pip install -r requirements.pip --allow-all-external
 export DJANGO_SETTINGS_MODULE='imentor.settings'
 
 echo "CREATE A 'vagrant' DB user"
