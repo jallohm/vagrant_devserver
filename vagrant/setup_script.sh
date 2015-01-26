@@ -45,7 +45,7 @@ cd /imentor/ && sudo pip install -r requirements.pip
 export DJANGO_SETTINGS_MODULE='imentor.settings'
 
 echo "CREATE A 'vagrant' DB user"
-sudo createuser vagrant
+sudo su postgres -c createuser vagrant
 sudo mkdir /var/log/uwsgi/
 sudo chown vagrant:vagrant /var/log/uwsgi
 sudo -u postgres sh -c "psql -f /vagrant/init.sql"
@@ -53,11 +53,11 @@ sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 
-sudo createuser -s -d -r imentor
-sudo su postgres -c psql
+sudo su postgres createuser -s -d -r imentor
+#sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
-sudo createdb -O imentor imentor_production
+sudo su createdb -O imentor imentor_production
 #sudo su postgres -c psql
 #\q
 
