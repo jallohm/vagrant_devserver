@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
 
 
   #Assuming that the this Vagrantfile is in our local platform/imentor directory
-  #symlink server's '/home/vagrant/imentor' directory with our local 'platform/imentor' directory
+  #Symlink server's '/home/vagrant/imentor' directory with our local 'platform/imentor' directory
   #The whole project should be accessible from here: '/home/vagrant/imentor' on the Vagrant server
   config.vm.synced_folder ".", "/home/vagrant/imentor"
 
