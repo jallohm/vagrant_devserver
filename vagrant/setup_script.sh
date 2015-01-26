@@ -8,9 +8,10 @@
 #sudo su 
 echo "Let's update the Linux CLI utility"
 sudo apt-get update
+sudo apt-get -y install python-pip python-dev postgresql postgresql-server-dev-9.3
 # Backup way of installing setup.py and pip
 sudo wget https://svn.apache.org/repos/asf/oodt/tools/oodtsite.publisher/trunk/distribute_setup.py
-sudo apt-get -y install python-pip python-dev postgresql postgresql-server-dev-9.3
+sudo pip install --no-use-wheel --upgrade distribute
 
 echo -e '\n\n=============================\n'
 echo "Next: Let's install the MongoDB packages"
@@ -40,7 +41,7 @@ echo "Installing some Python packages of our project's web stack"
 #pip install -r requirements.pip
 
 cd /imentor && ln -sf ./platform ./imi 
-cd /imentor/ && pip install -r requirements.pip
+cd /imentor/ && sudo pip install -r requirements.pip
 export DJANGO_SETTINGS_MODULE='imentor.settings'
 
 echo "CREATE A 'vagrant' DB user"
@@ -52,9 +53,7 @@ sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 
-sudo createuser -P -s -d -r imentor
-7yh8uj9ik0ol
-7yh8uj9ik0ol
+sudo createuser -s -d -r imentor
 sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
