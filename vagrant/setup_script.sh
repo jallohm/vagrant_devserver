@@ -54,7 +54,7 @@ sudo -u postgres sh -c "psql -f /vagrant/init.sql"
 
 echo "CREATE A POSTGRES USER AND DATABASE FOR our project"
 
-sudo su postgres createuser -s -d -r imentor
+sudo postgres createuser -s -d imentor
 #sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
