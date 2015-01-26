@@ -42,7 +42,7 @@ sudo apt-get install -y git
 echo "Installing some Python packages of our project's web stack"
 #pip install -r requirements.pip
 
-cd /imentor && ln -sf ./platform ./imi 
+#cd /imentor && ln -sf ./platform ./imi 
 cd /imentor/ && sudo pip install -r requirements.pip --allow-all-external
 export DJANGO_SETTINGS_MODULE='imentor.settings'
 
@@ -59,7 +59,7 @@ sudo createuser -s -d imentor
 #sudo su postgres -c psql
 #ALTER USER imentor WITH PASSWORD '7yh8uj9ik0ol';
 #sudo -u postgres createdb -O imentor imentor_production
-sudo su createdb -O imentor imentor_production
+sudo createdb -O imentor imentor_production
 #sudo su postgres -c psql
 #\q
 
